@@ -14,7 +14,7 @@
 EasyStash is an easy and lightweight persistence framework in Swift. With simple abstraction over `NSCache` and `FileManager`, it saves us from tedious work of saving and loading objects. There are no clever async, expiry handling or caching strategy for now, just save and load.
 
 - [x] Swift 5
-- [x] Support iOS, macOS, tvOS, watchOS
+- [x] Support iOS, macOS, tvOS
 - [x] Synchronous APIs with explicit try catch
 - [x] Persist UIImage/NSImage
 - [x] Persist Codable objects, including primitive types

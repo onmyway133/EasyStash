@@ -14,13 +14,13 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.13'
   s.tvos.deployment_target = '12.0'
-  s.watchos.deployment_target = "5.0"
+# s.watchos.deployment_target = "5.0"
 
   s.requires_arc = true
   s.ios.source_files = 'Sources/**/*'
   s.tvos.source_files = 'Sources/**/*'
   s.osx.source_files = 'Sources/**/*'
-  s.watchos.source_files = 'Sources/**/*'
+# s.watchos.source_files = 'Sources/**/*'
 
   s.swift_version = '5.0'
 end
