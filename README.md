@@ -116,6 +116,20 @@ Remove files based on predicate. This is useful when we want to clear expired ob
 try storage.removeAll(predicate: { $0.modificationDate < migrationDate })
 ```
 
+## Async
+
+`EasyStash` is designed to be synchronous. If we want to do async, it's easy as using `DispatchQueue`
+
+```swift
+DispatchQueue.global().async {
+    do {
+        try storage.save(largeImage, forKey: "large_image")
+    } catch {
+        
+    }
+}
+```
+
 ## Installation
 
 **EasyStash** is available through [CocoaPods](http://cocoapods.org). To install

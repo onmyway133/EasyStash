@@ -34,13 +34,13 @@ class iOSTests: XCTestCase {
         ]
 
         do {
-            try storage.save(object: users, key: "users")
+            try storage.save(object: users, forKey: "users")
             storage.cache.removeAllObjects()
-            let loadedUsers = try storage.load(key: "users", as: [User].self)
+            let loadedUsers = try storage.load(forKey: "users", as: [User].self)
             XCTAssertEqual(users, loadedUsers)
 
-            try storage.remove(key: "users")
-            XCTAssertFalse(storage.exists(key: "users"))
+            try storage.remove(forKey: "users")
+            XCTAssertFalse(storage.exists(forKey: "users"))
         } catch {
             XCTFail(error.localizedDescription)
         }
@@ -50,16 +50,16 @@ class iOSTests: XCTestCase {
         let image = UIColor.red.image(CGSize(width: 100, height: 100))
 
         do {
-            try storage.save(object: image, key: "image")
+            try storage.save(object: image, forKey: "image")
             storage.cache.removeAllObjects()
-            let loadedImage = try storage.load(key: "image")
+            let loadedImage = try storage.load(forKey: "image")
             XCTAssertEqual(
                 loadedImage.size.mutiply(loadedImage.scale),
                 image.size.mutiply(image.scale)
             )
 
-            try storage.remove(key: "image")
-            XCTAssertFalse(storage.exists(key: "image"))
+            try storage.remove(forKey: "image")
+            XCTAssertFalse(storage.exists(forKey: "image"))
         } catch {
             XCTFail(error.localizedDescription)
         }
@@ -67,11 +67,11 @@ class iOSTests: XCTestCase {
 
     func testPrimitive() {
         do {
-            try storage.save(object: 1, key: "number")
-            try storage.save(object: "Hello", key: "string")
+            try storage.save(object: 1, forKey: "number")
+            try storage.save(object: "Hello", forKey: "string")
 
-            let number = try storage.load(key: "number", as: Int.self)
-            let string = try storage.load(key: "string", as: String.self)
+            let number = try storage.load(forKey: "number", as: Int.self)
+            let string = try storage.load(forKey: "string", as: String.self)
 
             XCTAssertEqual(number, 1)
             XCTAssertEqual(string, "Hello")
@@ -84,7 +84,7 @@ class iOSTests: XCTestCase {
         let image = UIColor.red.image(CGSize(width: 100, height: 100))
 
         do {
-            try storage.save(object: image, key: "image")
+            try storage.save(object: image, forKey: "image")
             XCTAssertEqual(try storage.folderSize(), 2425)
             XCTAssertEqual(try storage.isEmpty(), false)
         } catch {
@@ -94,9 +94,9 @@ class iOSTests: XCTestCase {
 
     func testFiles() {
         do {
-            try storage.save(object: 1, key: "one")
-            try storage.save(object: 2, key: "two")
-            try storage.save(object: 3, key: "three")
+            try storage.save(object: 1, forKey: "one")
+            try storage.save(object: 2, forKey: "two")
+            try storage.save(object: 3, forKey: "three")
 
             let files = try storage
                 .files()
@@ -114,23 +114,23 @@ class iOSTests: XCTestCase {
 
     func testRemoveAllPredicate() {
         do {
-            try storage.save(object: 1, key: "one")
-            try storage.save(object: 2, key: "two")
-            try storage.save(object: 3, key: "three")
+            try storage.save(object: 1, forKey: "one")
+            try storage.save(object: 2, forKey: "two")
+            try storage.save(object: 3, forKey: "three")
 
             try storage.removeAll(predicate: { $0.name == "one" })
             let files = try storage.files()
             XCTAssertEqual(files.count, 2)
 
             do {
-                let _ = try storage.load(key: "one", as: Int.self)
+                let _ = try storage.load(forKey: "one", as: Int.self)
             } catch {
                 XCTAssertNotNil(error)
                 let nsError = error as NSError
                 XCTAssertEqual(nsError.code, 260)
             }
 
-            let two = try storage.load(key: "two", as: Int.self)
+            let two = try storage.load(forKey: "two", as: Int.self)
             XCTAssertEqual(two, 2)
         } catch {
             XCTFail(error.localizedDescription)
@@ -139,15 +139,15 @@ class iOSTests: XCTestCase {
 
     func testRemoveAll() {
         do {
-            try storage.save(object: 1, key: "one")
-            try storage.save(object: 2, key: "two")
-            try storage.save(object: 3, key: "three")
+            try storage.save(object: 1, forKey: "one")
+            try storage.save(object: 2, forKey: "two")
+            try storage.save(object: 3, forKey: "three")
 
             try storage.removeAll()
 
-            XCTAssertFalse(storage.exists(key: "one"))
-            XCTAssertFalse(storage.exists(key: "two"))
-            XCTAssertFalse(storage.exists(key: "three"))
+            XCTAssertFalse(storage.exists(forKey: "one"))
+            XCTAssertFalse(storage.exists(forKey: "two"))
+            XCTAssertFalse(storage.exists(forKey: "three"))
         } catch {
             XCTFail(error.localizedDescription)
         }

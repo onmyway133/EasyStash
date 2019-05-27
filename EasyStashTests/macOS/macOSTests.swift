@@ -15,7 +15,7 @@ class macOSTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        var options = Storage.Options()
+        var options = Options()
         options.searchPathDirectory = FileManager.SearchPathDirectory.cachesDirectory
         storage = try! Storage(options: options)
     }
@@ -28,13 +28,13 @@ class macOSTests: XCTestCase {
         ]
 
         do {
-            try storage.save(object: users, key: "users")
+            try storage.save(object: users, forKey: "users")
             storage.cache.removeAllObjects()
-            let loadedUsers = try storage.load(key: "users", as: [User].self)
+            let loadedUsers = try storage.load(forKey: "users", as: [User].self)
             XCTAssertEqual(users, loadedUsers)
 
-            try storage.remove(key: "users")
-            XCTAssertFalse(storage.exists(key: "users"))
+            try storage.remove(forKey: "users")
+            XCTAssertFalse(storage.exists(forKey: "users"))
         } catch {
             XCTFail(error.localizedDescription)
         }
@@ -44,13 +44,13 @@ class macOSTests: XCTestCase {
         let image = NSImage(color: NSColor.red, size: CGSize(width: 100, height: 100))
 
         do {
-            try storage.save(object: image, key: "image")
+            try storage.save(object: image, forKey: "image")
             storage.cache.removeAllObjects()
-            let loadedImage = try storage.load(key: "image")
+            let loadedImage = try storage.load(forKey: "image")
             XCTAssertEqual(loadedImage.size, CGSize(width: 100, height: 100))
 
-            try storage.remove(key: "image")
-            XCTAssertFalse(storage.exists(key: "image"))
+            try storage.remove(forKey: "image")
+            XCTAssertFalse(storage.exists(forKey: "image"))
         } catch {
             XCTFail(error.localizedDescription)
         }
