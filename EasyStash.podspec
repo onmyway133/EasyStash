@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "EasyStash"
-  s.summary          = "Easy data persistency in Swift"
+  s.summary          = "Easy data persistence in Swift"
   s.version          = "0.1.0"
   s.homepage         = "https://github.com/onmyway133/EasyStash"
   s.license          = 'MIT'

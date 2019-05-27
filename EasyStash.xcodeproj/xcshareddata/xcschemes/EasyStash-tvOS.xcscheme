@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D284B1031F79038B00D94AF3"
-               BuildableName = "EasyStash-tvOS-Tests.xctest"
-               BlueprintName = "EasyStash-tvOS-Tests"
-               ReferencedContainer = "container:EasyStash.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D284B0FB1F79038B00D94AF3"
-            BuildableName = "EasyStash.framework"
-            BlueprintName = "EasyStash-tvOS"
-            ReferencedContainer = "container:EasyStash.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
