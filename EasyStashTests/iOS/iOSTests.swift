@@ -47,7 +47,10 @@ class iOSTests: XCTestCase {
             try storage.save(object: image, key: "image")
             storage.cache.removeAllObjects()
             let loadedImage = try storage.load(key: "image")
-            XCTAssertEqual(loadedImage.size, CGSize(width: 100, height: 100))
+            XCTAssertEqual(
+                loadedImage.size.mutiply(loadedImage.scale),
+                image.size.mutiply(image.scale)
+            )
 
             try storage.remove(key: "image")
             XCTAssertFalse(storage.exists(key: "image"))
@@ -85,5 +88,11 @@ class iOSTests: XCTestCase {
         measure {
             NSKeyedArchiver.archivedData(withRootObject: users)
         }
+    }
+}
+
+extension CGSize {
+    func mutiply(_ value: CGFloat) -> CGSize {
+        return CGSize(width: width * value, height: height * value)
     }
 }
