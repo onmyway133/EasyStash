@@ -62,4 +62,10 @@ class Utils {
     }
 }
 
+public struct File {
+    public let name: String
+    public let url: URL
+    public let modificationDate: Date?
+    public let size: UInt64?
+}
 

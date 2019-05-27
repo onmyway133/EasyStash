@@ -92,6 +92,26 @@ class iOSTests: XCTestCase {
         }
     }
 
+    func testFiles() {
+        do {
+            try storage.save(object: 1, key: "one")
+            try storage.save(object: 2, key: "two")
+            try storage.save(object: 3, key: "three")
+
+            let files = try storage
+                .files()
+                .sorted(by: { $0.modificationDate! < $1.modificationDate! })
+
+            XCTAssertEqual(files.count, 3)
+            XCTAssertEqual(files[0].name, "one")
+            XCTAssertEqual(files[1].name, "two")
+            XCTAssertEqual(files[2].name, "three")
+            XCTAssertEqual(files[0].size, 12)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
     func testRemoveAll() {
         do {
             try storage.save(object: 1, key: "one")

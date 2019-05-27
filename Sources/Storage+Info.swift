@@ -15,8 +15,8 @@ public extension Storage {
         var totalSize: UInt64 = 0
         let contents = try fileManager.contentsOfDirectory(atPath: folderUrl.path)
         try contents.forEach { content in
-            let filePath = folderUrl.appendingPathComponent(content)
-            let attributes = try fileManager.attributesOfItem(atPath: filePath.path)
+            let fileUrl = folderUrl.appendingPathComponent(content)
+            let attributes = try fileManager.attributesOfItem(atPath: fileUrl.path)
             if let size = attributes[.size] as? UInt64 {
                 totalSize += size
             }
@@ -29,5 +29,25 @@ public extension Storage {
     func isEmpty() throws -> Bool {
         let contents = try fileManager.contentsOfDirectory(atPath: folderUrl.path)
         return contents.isEmpty
+    }
+
+    func files() throws -> [File] {
+        let contents = try fileManager.contentsOfDirectory(atPath: folderUrl.path)
+        let files: [File] = try contents.map({ content in
+            let fileUrl = folderUrl.appendingPathComponent(content)
+            let attributes = try fileManager.attributesOfItem(atPath: fileUrl.path)
+            let modificationDate: Date? = attributes[.modificationDate] as? Date
+            let size: UInt64? = attributes[.size] as? UInt64
+
+            return File(
+                name: content,
+                url: fileUrl,
+                modificationDate:
+                modificationDate,
+                size: size
+            )
+        })
+
+        return files
     }
 }
