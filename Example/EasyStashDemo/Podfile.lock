@@ -1,0 +1,16 @@
+PODS:
+  - EasyStash (0.1.0)
+
+DEPENDENCIES:
+  - EasyStash (from `../../`)
+
+EXTERNAL SOURCES:
+  EasyStash:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  EasyStash: b4bb24eb7e64d0f431c0ec7205cb60e926a0c1f8
+
+PODFILE CHECKSUM: a0374c7a19ab89f1ce1248943783893f5995ae0f
+
+COCOAPODS: 1.7.0.beta.3
