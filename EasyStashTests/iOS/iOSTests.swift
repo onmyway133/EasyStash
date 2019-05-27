@@ -53,4 +53,20 @@ class iOSTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
+
+    func testRemoveAll() {
+        do {
+            try storage.save(object: 1, key: "one")
+            try storage.save(object: 2, key: "two")
+            try storage.save(object: 3, key: "three")
+
+            try storage.removeAll()
+
+            XCTAssertFalse(storage.exists(key: "one"))
+            XCTAssertFalse(storage.exists(key: "two"))
+            XCTAssertFalse(storage.exists(key: "three"))
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
 }
