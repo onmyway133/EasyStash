@@ -80,6 +80,17 @@ class iOSTests: XCTestCase {
         }
     }
 
+    func testFolderSize() {
+        let image = UIColor.red.image(CGSize(width: 100, height: 100))
+
+        do {
+            try storage.save(object: image, key: "image")
+            XCTAssertEqual(try storage.folderSize(), 2425)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
     func testRemoveAll() {
         do {
             try storage.save(object: 1, key: "one")

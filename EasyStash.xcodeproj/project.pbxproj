@@ -43,6 +43,10 @@
 		D2A6456E229C290E00EF358F /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6456C229C290E00EF358F /* Options.swift */; };
 		D2A6456F229C290E00EF358F /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6456C229C290E00EF358F /* Options.swift */; };
 		D2A64570229C290E00EF358F /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6456C229C290E00EF358F /* Options.swift */; };
+		D2A64572229C2A4300EF358F /* Storage+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64571229C2A4300EF358F /* Storage+Info.swift */; };
+		D2A64573229C2A4300EF358F /* Storage+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64571229C2A4300EF358F /* Storage+Info.swift */; };
+		D2A64574229C2A4300EF358F /* Storage+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64571229C2A4300EF358F /* Storage+Info.swift */; };
+		D2A64575229C2A4300EF358F /* Storage+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64571229C2A4300EF358F /* Storage+Info.swift */; };
 		D5B2E8AA1C3A780C00C0327D /* EasyStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2E89F1C3A780C00C0327D /* EasyStash.framework */; };
 		D5C6294A1C3A7FAA007F7B7C /* EasyStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C629401C3A7FAA007F7B7C /* EasyStash.framework */; };
 /* End PBXBuildFile section */
@@ -94,6 +98,7 @@
 		D2A64562229C28D400EF358F /* Storage+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Codable.swift"; sourceTree = "<group>"; };
 		D2A64567229C28DA00EF358F /* Storage+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Image.swift"; sourceTree = "<group>"; };
 		D2A6456C229C290E00EF358F /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		D2A64571229C2A4300EF358F /* Storage+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Info.swift"; sourceTree = "<group>"; };
 		D500FD111C3AABED00782D78 /* Playground-iOS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Playground-iOS.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D500FD121C3AAC8E00782D78 /* Playground-macOS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Playground-macOS.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5B2E89F1C3A780C00C0327D /* EasyStash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyStash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +243,7 @@
 				D2A64562229C28D400EF358F /* Storage+Codable.swift */,
 				D2A64567229C28DA00EF358F /* Storage+Image.swift */,
 				D2A6456C229C290E00EF358F /* Options.swift */,
+				D2A64571229C2A4300EF358F /* Storage+Info.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -546,6 +552,7 @@
 				D2A64560229C28AE00EF358F /* Utils.swift in Sources */,
 				D2A6456F229C290E00EF358F /* Options.swift in Sources */,
 				D2A64565229C28D400EF358F /* Storage+Codable.swift in Sources */,
+				D2A64574229C2A4300EF358F /* Storage+Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +576,7 @@
 				D2A64561229C28AE00EF358F /* Utils.swift in Sources */,
 				D2A64570229C290E00EF358F /* Options.swift in Sources */,
 				D2A64566229C28D400EF358F /* Storage+Codable.swift in Sources */,
+				D2A64575229C2A4300EF358F /* Storage+Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +589,7 @@
 				D2A6455E229C28AE00EF358F /* Utils.swift in Sources */,
 				D2A6456D229C290E00EF358F /* Options.swift in Sources */,
 				D2A64563229C28D400EF358F /* Storage+Codable.swift in Sources */,
+				D2A64572229C2A4300EF358F /* Storage+Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +613,7 @@
 				D2A6455F229C28AE00EF358F /* Utils.swift in Sources */,
 				D2A6456E229C290E00EF358F /* Options.swift in Sources */,
 				D2A64564229C28D400EF358F /* Storage+Codable.swift in Sources */,
+				D2A64573229C2A4300EF358F /* Storage+Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
