@@ -1,20 +1,34 @@
-# EasyStash
+<div align='center'>
+    <img src='Screenshots/logo.png'>
+</div>
 
 [![CI Status](https://img.shields.io/circleci/project/github/onmyway133/EasyStash.svg)](https://circleci.com/gh/onmyway133/EasyStash)
 [![Version](https://img.shields.io/cocoapods/v/EasyStash.svg?style=flat)](http://cocoadocs.org/docsets/EasyStash)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/EasyStash.svg?style=flat)](http://cocoadocs.org/docsets/EasyStash)
 [![Platform](https://img.shields.io/cocoapods/p/EasyStash.svg?style=flat)](http://cocoadocs.org/docsets/EasyStash)
-![Swift](https://img.shields.io/badge/%20in-swift%204.0-orange.svg)
+![Swift](https://img.shields.io/badge/%20in-swift%205.0-orange.svg)
 
 ## Description
 
-**EasyStash** description.
+EasyStash is an easy and lightweight persistence framework in Swift. With simple abstraction over `NSCache` and `FileManager`, it saves us from tedious work of saving and loading objects. There are no clever async, expiry handling or caching strategy for now, just save and load.
+
+- [x] Swift 5
+- [x] Support iOS, macOS, tvOS, watchOS
+- [x] Synchronous APIs with explicit try catch
+- [x] Persist UIImage/NSImage
+- [x] Persist Codable objects, including primitive types
 
 ## Usage
 
+The main and only class is `Storage` which encapsulates memory and disk cache.
+
+With `Options`, we can customize `folder` name, `searchPathDirectory`, `encoder` and `decoder` for `Codable`
+
 ```swift
-<API>
+let options = Options()
+options.folder = "Users"
+storage = try! Storage(options: options)
 ```
 
 ## Installation
