@@ -52,7 +52,7 @@ public extension Storage {
     }
 
     /// Remove all files matching predicate
-    func removeFiles(predicate: (File) -> Bool) throws {
+    func removeAll(predicate: (File) -> Bool) throws {
         let files = try self.files().filter(predicate)
         try files.forEach {
             try remove(key: $0.name)

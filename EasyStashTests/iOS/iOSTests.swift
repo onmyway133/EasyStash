@@ -112,6 +112,21 @@ class iOSTests: XCTestCase {
         }
     }
 
+    func testRemoveAllPredicate() {
+        do {
+            try storage.save(object: 1, key: "one")
+            try storage.save(object: 2, key: "two")
+            try storage.save(object: 3, key: "three")
+
+            try storage.removeAll(predicate: { $0.name == "one" })
+            let files = try storage.files()
+
+            XCTAssertEqual(files.count, 2)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
     func testRemoveAll() {
         do {
             try storage.save(object: 1, key: "one")
