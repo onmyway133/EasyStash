@@ -19,6 +19,8 @@ public extension Storage {
     struct Options {
         public var searchPathDirectory: FileManager.SearchPathDirectory = .cachesDirectory
         public var folder: String = "Default"
+        public var encoder: JSONEncoder = JSONEncoder()
+        public var decoder: JSONDecoder = JSONDecoder()
 
         public init() {}
     }
@@ -73,20 +75,41 @@ public class Storage {
 public extension Storage {
     func save<T: Codable>(object: T, key: String) throws {
         cache.setObject(object as AnyObject, forKey: key as NSString)
-        let encoder = JSONEncoder()
-        let data = try encoder.encode(object)
-        try fileManager
-            .createFile(atPath: fileUrl(key: key).path, contents: data, attributes: nil)
-            .trueOrThrow(StorageError.createFile)
+        let encoder = options.encoder
+
+        func innerSave<T: Codable>(_ object: T) throws {
+            let data = try encoder.encode(object)
+            try fileManager
+                .createFile(atPath: fileUrl(key: key).path, contents: data, attributes: nil)
+                .trueOrThrow(StorageError.createFile)
+        }
+
+        do {
+            try innerSave(object)
+        } catch {
+            let typeWrapper = TypeWrapper(object: object)
+            try innerSave(typeWrapper)
+        }
     }
 
     func load<T: Codable>(key: String, as: T.Type) throws -> T {
+        func loadFromDisk<T: Codable>(key: String, as: T.Type) throws -> T {
+            let data = try Data(contentsOf: fileUrl(key: key))
+            let decoder = options.decoder
+
+            do {
+                let object = try decoder.decode(T.self, from: data)
+                return object
+            } catch {
+                let typeWrapper = try decoder.decode(TypeWrapper<T>.self, from: data)
+                return typeWrapper.object
+            }
+        }
+
         if let object = cache.object(forKey: key as NSString) as? T {
             return object
         } else {
-            let data = try Data(contentsOf: fileUrl(key: key))
-            let decoder = JSONDecoder()
-            let object = try decoder.decode(T.self, from: data)
+            let object = try loadFromDisk(key: key, as: T.self)
             cache.setObject(object as AnyObject, forKey: key as NSString)
             return object
         }
@@ -171,5 +194,18 @@ private extension Bool {
         if !self {
             throw error
         }
+    }
+}
+
+/// Use to wrap primitive Codable
+public struct TypeWrapper<T: Codable>: Codable {
+    enum CodingKeys: String, CodingKey {
+        case object
+    }
+
+    public let object: T
+
+    public init(object: T) {
+        self.object = object
     }
 }
