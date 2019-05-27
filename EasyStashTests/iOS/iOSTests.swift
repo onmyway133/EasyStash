@@ -120,8 +120,18 @@ class iOSTests: XCTestCase {
 
             try storage.removeAll(predicate: { $0.name == "one" })
             let files = try storage.files()
-
             XCTAssertEqual(files.count, 2)
+
+            do {
+                let _ = try storage.load(key: "one", as: Int.self)
+            } catch {
+                XCTAssertNotNil(error)
+                let nsError = error as NSError
+                XCTAssertEqual(nsError.code, 260)
+            }
+
+            let two = try storage.load(key: "two", as: Int.self)
+            XCTAssertEqual(two, 2)
         } catch {
             XCTFail(error.localizedDescription)
         }
