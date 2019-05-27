@@ -17,10 +17,10 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = "4.0"
 
   s.requires_arc = true
-  s.ios.source_files = 'Sources/{iOS,Shared}/**/*'
-  s.tvos.source_files = 'Sources/{iOS,tvOS,Shared}/**/*'
-  s.osx.source_files = 'Sources/{macOS,Shared}/**/*'
-  s.watchos.source_files = 'Sources/{watchOS,Shared}/**/*'
+  s.ios.source_files = 'Sources/**/*'
+  s.tvos.source_files = 'Sources/**/*'
+  s.osx.source_files = 'Sources/**/*'
+  s.watchos.source_files = 'Sources/**/*'
 
   s.swift_version = '5.0'
 end
