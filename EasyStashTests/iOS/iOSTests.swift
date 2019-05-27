@@ -40,6 +40,17 @@ class iOSTests: XCTestCase {
     }
 
     func testImage() {
+        let image = UIColor.red.image(CGSize(width: 100, height: 100))
 
+        do {
+            try storage.save(object: image, key: "image")
+            let loadedImage = try storage.load(key: "image")
+            XCTAssertEqual(loadedImage.size, CGSize(width: 100, height: 100))
+
+            try storage.remove(key: "image")
+            XCTAssertFalse(storage.exists(key: "image"))
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
     }
 }

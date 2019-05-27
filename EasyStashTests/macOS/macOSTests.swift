@@ -7,28 +7,34 @@
 //
 
 import XCTest
+import EasyStash
 
 class macOSTests: XCTestCase {
+    var storage: Storage!
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        let options = Storage.Options()
+        storage = try! Storage(options: options)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    func testObject() {
+        let users = [
+            User(city: "Oslo", name: "A"),
+            User(city: "Berlin", name: "B"),
+            User(city: "New York", name: "C")
+        ]
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        do {
+            try storage.save(object: users, key: "users")
+            let loadedUsers = try storage.load(key: "users", as: [User].self)
+            XCTAssertEqual(users, loadedUsers)
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            try storage.remove(key: "users")
+            XCTAssertFalse(storage.exists(key: "users"))
+        } catch {
+            XCTFail(error.localizedDescription)
         }
     }
 }

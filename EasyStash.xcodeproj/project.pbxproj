@@ -24,6 +24,8 @@
 		D2A64555229C11A900EF358F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64554229C11A900EF358F /* User.swift */; };
 		D2A64556229C11A900EF358F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64554229C11A900EF358F /* User.swift */; };
 		D2A64557229C11A900EF358F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64554229C11A900EF358F /* User.swift */; };
+		D2A64559229C14A800EF358F /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64558229C14A800EF358F /* ImageGenerate.swift */; };
+		D2A6455B229C14A800EF358F /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64558229C14A800EF358F /* ImageGenerate.swift */; };
 		D5B2E8AA1C3A780C00C0327D /* EasyStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2E89F1C3A780C00C0327D /* EasyStash.framework */; };
 		D5C6294A1C3A7FAA007F7B7C /* EasyStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C629401C3A7FAA007F7B7C /* EasyStash.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,7 @@
 		D2A6454E229BF6B300EF358F /* EasyStash.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = EasyStash.podspec; sourceTree = "<group>"; };
 		D2A6454F229BF6C700EF358F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		D2A64554229C11A900EF358F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D2A64558229C14A800EF358F /* ImageGenerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerate.swift; sourceTree = "<group>"; };
 		D500FD111C3AABED00782D78 /* Playground-iOS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Playground-iOS.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D500FD121C3AAC8E00782D78 /* Playground-macOS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Playground-macOS.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5B2E89F1C3A780C00C0327D /* EasyStash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyStash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +150,7 @@
 			children = (
 				D284B1321F7906DA00D94AF3 /* SharedTests.swift */,
 				D2A64554229C11A900EF358F /* User.swift */,
+				D2A64558229C14A800EF358F /* ImageGenerate.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -520,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A6455B229C14A800EF358F /* ImageGenerate.swift in Sources */,
 				D284B1441F7908B100D94AF3 /* SharedTests.swift in Sources */,
 				D284B13E1F7907AD00D94AF3 /* tvOSTests.swift in Sources */,
 				D2A64557229C11A900EF358F /* User.swift in Sources */,
@@ -546,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A64559229C14A800EF358F /* ImageGenerate.swift in Sources */,
 				D284B1461F7908B300D94AF3 /* SharedTests.swift in Sources */,
 				D284B1471F7908B800D94AF3 /* iOSTests.swift in Sources */,
 				D2A64555229C11A900EF358F /* User.swift in Sources */,
@@ -669,7 +675,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
@@ -691,7 +696,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};
@@ -983,7 +987,6 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/EasyStashTests/Info-macOS-Tests.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "no.hyper.EasyStash-MacTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -997,7 +1000,6 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/EasyStashTests/Info-macOS-Tests.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "no.hyper.EasyStash-MacTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;

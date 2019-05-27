@@ -28,6 +28,7 @@ public enum StorageError: Error {
     case notFound
     case encodeData
     case decodeData
+    case createFile
 }
 
 public class Storage {
@@ -71,7 +72,9 @@ public extension Storage {
         cache.setObject(object as AnyObject, forKey: key as NSString)
         let encoder = JSONEncoder()
         let data = try encoder.encode(object)
-        try data.write(to: fileUrl(key: key))
+        try fileManager
+            .createFile(atPath: fileUrl(key: key).absoluteString, contents: data, attributes: nil)
+            .trueOrThrow(StorageError.createFile)
     }
 
     func load<T: Codable>(key: String, as: T.Type) throws -> T {
@@ -91,7 +94,9 @@ public extension Storage {
     func save(object: Image, key: String) throws {
         cache.setObject(object as AnyObject, forKey: key as NSString)
         let data = try unwrapOrThrow(self.data(image: object), StorageError.encodeData)
-        try data.write(to: fileUrl(key: key))
+        try fileManager
+            .createFile(atPath: fileUrl(key: key).absoluteString, contents: data, attributes: nil)
+            .trueOrThrow(StorageError.createFile)
     }
 
     func load(key: String) throws -> Image {
@@ -155,5 +160,13 @@ private func unwrapOrThrow<T>(_ optional: Optional<T>, _ error: Error) throws ->
         return value
     } else {
         throw error
+    }
+}
+
+private extension Bool {
+    func trueOrThrow(_ error: Error) throws {
+        if !self {
+            throw error
+        }
     }
 }
