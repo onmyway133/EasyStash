@@ -112,22 +112,6 @@ public extension Storage {
             return object
         }
     }
-
-    private func image(data: Data) -> Image? {
-        #if os(iOS) || os(tvOS)
-            return UIImage(data: data)
-        #elseif os(OSX)
-            return NSImage(data: data)
-        #endif
-    }
-
-    private func data(image: Image) -> Data? {
-        #if os(iOS) || os(tvOS)
-            return image.jpegData(compressionQuality: 0.9)
-        #elseif os(OSX)
-            return image.tiffRepresentation
-        #endif
-    }
 }
 
 extension Storage {
@@ -155,6 +139,22 @@ extension Storage {
 
     func fileUrl(key: String) -> URL {
         return folderUrl.appendingPathComponent(key)
+    }
+
+    func image(data: Data) -> Image? {
+        #if os(iOS) || os(tvOS)
+        return UIImage(data: data)
+        #elseif os(OSX)
+        return NSImage(data: data)
+        #endif
+    }
+
+    func data(image: Image) -> Data? {
+        #if os(iOS) || os(tvOS)
+        return image.jpegData(compressionQuality: 0.9)
+        #elseif os(OSX)
+        return image.tiffRepresentation
+        #endif
     }
 }
 
