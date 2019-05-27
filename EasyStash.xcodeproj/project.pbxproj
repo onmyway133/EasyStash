@@ -26,6 +26,7 @@
 		D2A64557229C11A900EF358F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64554229C11A900EF358F /* User.swift */; };
 		D2A64559229C14A800EF358F /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64558229C14A800EF358F /* ImageGenerate.swift */; };
 		D2A6455B229C14A800EF358F /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64558229C14A800EF358F /* ImageGenerate.swift */; };
+		D2A6455C229C164900EF358F /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64558229C14A800EF358F /* ImageGenerate.swift */; };
 		D5B2E8AA1C3A780C00C0327D /* EasyStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2E89F1C3A780C00C0327D /* EasyStash.framework */; };
 		D5C6294A1C3A7FAA007F7B7C /* EasyStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C629401C3A7FAA007F7B7C /* EasyStash.framework */; };
 /* End PBXBuildFile section */
@@ -570,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A6455C229C164900EF358F /* ImageGenerate.swift in Sources */,
 				D284B1451F7908B200D94AF3 /* SharedTests.swift in Sources */,
 				D284B1481F7908BB00D94AF3 /* macOSTests.swift in Sources */,
 				D2A64556229C11A900EF358F /* User.swift in Sources */,
