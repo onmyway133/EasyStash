@@ -29,6 +29,7 @@ class iOSTests: XCTestCase {
 
         do {
             try storage.save(object: users, key: "users")
+            storage.cache.removeAllObjects()
             let loadedUsers = try storage.load(key: "users", as: [User].self)
             XCTAssertEqual(users, loadedUsers)
 
@@ -44,6 +45,7 @@ class iOSTests: XCTestCase {
 
         do {
             try storage.save(object: image, key: "image")
+            storage.cache.removeAllObjects()
             let loadedImage = try storage.load(key: "image")
             XCTAssertEqual(loadedImage.size, CGSize(width: 100, height: 100))
 
