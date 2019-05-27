@@ -69,4 +69,19 @@ class iOSTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
+
+    func testPerformanceUsingEncoder() {
+        let users = Array(0..<10_000).map { _ in User2(city: "Oslo", name: "A") }
+        measure {
+            let encoder = JSONEncoder()
+            let _ = try! encoder.encode(users)
+        }
+    }
+
+    func testPerformanceUsingKeyArchiver() {
+        let users = Array(0..<10_000).map { _ in User3(city: "Oslo", name: "A") }
+        measure {
+            NSKeyedArchiver.archivedData(withRootObject: users)
+        }
+    }
 }
