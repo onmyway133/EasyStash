@@ -15,7 +15,8 @@ class macOSTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        let options = Storage.Options()
+        var options = Storage.Options()
+        options.searchPathDirectory = FileManager.SearchPathDirectory.cachesDirectory
         storage = try! Storage(options: options)
     }
 

@@ -56,7 +56,7 @@ public class Storage {
     }
 
     public func exists(key: String) -> Bool {
-        return fileManager.fileExists(atPath: fileUrl(key: key).absoluteString)
+        return fileManager.fileExists(atPath: fileUrl(key: key).path)
     }
 
     public func removeAll() throws {
@@ -76,7 +76,7 @@ public extension Storage {
         let encoder = JSONEncoder()
         let data = try encoder.encode(object)
         try fileManager
-            .createFile(atPath: fileUrl(key: key).absoluteString, contents: data, attributes: nil)
+            .createFile(atPath: fileUrl(key: key).path, contents: data, attributes: nil)
             .trueOrThrow(StorageError.createFile)
     }
 
@@ -98,7 +98,7 @@ public extension Storage {
         cache.setObject(object as AnyObject, forKey: key as NSString)
         let data = try unwrapOrThrow(self.data(image: object), StorageError.encodeData)
         try fileManager
-            .createFile(atPath: fileUrl(key: key).absoluteString, contents: data, attributes: nil)
+            .createFile(atPath: fileUrl(key: key).path, contents: data, attributes: nil)
             .trueOrThrow(StorageError.createFile)
     }
 
@@ -116,12 +116,12 @@ public extension Storage {
 
 extension Storage {
     func createDirectoryIfNeeded(folderUrl: URL) throws {
-        guard !fileManager.fileExists(atPath: folderUrl.absoluteString) else {
+        guard !fileManager.fileExists(atPath: folderUrl.path) else {
             return
         }
 
         try fileManager.createDirectory(
-            atPath: folderUrl.absoluteString,
+            atPath: folderUrl.path,
             withIntermediateDirectories: true,
             attributes: nil
         )
@@ -133,7 +133,7 @@ extension Storage {
                 FileAttributeKey.protectionKey: FileProtectionType.complete
             ]
 
-            try fileManager.setAttributes(attributes, ofItemAtPath: folderUrl.absoluteString)
+            try fileManager.setAttributes(attributes, ofItemAtPath: folderUrl.path)
         #endif
     }
 
