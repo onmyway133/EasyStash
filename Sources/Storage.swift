@@ -40,6 +40,7 @@ public class Storage {
 
         self.folderUrl = url.appendingPathComponent(options.folder, isDirectory: true)
         try createDirectoryIfNeeded(folderUrl: folderUrl)
+        try applyAttributesIfAny(folderUrl: folderUrl)
     }
 
     public func save(object: AnyObject, key: String) throws {
@@ -75,6 +76,16 @@ extension Storage {
             withIntermediateDirectories: true,
             attributes: nil
         )
+    }
+
+    func applyAttributesIfAny(folderUrl: URL) throws {
+        #if os(iOS) || os(tvOS)
+            let attributes: [FileAttributeKey: Any] = [
+                FileAttributeKey.protectionKey: FileProtectionType.complete
+            ]
+
+            try fileManager.setAttributes(attributes, ofItemAtPath: folderUrl.absoluteString)
+        #endif
     }
 
     func filePath(key: String) -> URL {
