@@ -52,7 +52,7 @@ class iOSTests: XCTestCase {
         do {
             try storage.save(object: image, forKey: "image")
             storage.cache.removeAllObjects()
-            let loadedImage = try storage.load(forKey: "image")
+            let loadedImage: UIImage = try storage.load(forKey: "image")
             XCTAssertEqual(
                 loadedImage.size.mutiply(loadedImage.scale),
                 image.size.mutiply(image.scale)
@@ -60,6 +60,20 @@ class iOSTests: XCTestCase {
 
             try storage.remove(forKey: "image")
             XCTAssertFalse(storage.exists(forKey: "image"))
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func testData() {
+        let string = "Hello world"
+        let data = string.data(using: .utf8)!
+
+        do {
+            try storage.save(object: data, forKey: "data")
+            let loadedData: Data = try storage.load(forKey: "data")
+            let loadedString = String(data: loadedData, encoding: .utf8)
+            XCTAssertEqual(string, loadedString)
         } catch {
             XCTFail(error.localizedDescription)
         }

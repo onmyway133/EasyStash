@@ -17,6 +17,10 @@
 		D284B1461F7908B300D94AF3 /* SharedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284B1321F7906DA00D94AF3 /* SharedTests.swift */; };
 		D284B1471F7908B800D94AF3 /* iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284B1361F7906DA00D94AF3 /* iOSTests.swift */; };
 		D284B1481F7908BB00D94AF3 /* macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D284B12E1F7906DA00D94AF3 /* macOSTests.swift */; };
+		D292B641229C66EA00869EBF /* Storage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292B640229C66EA00869EBF /* Storage+Data.swift */; };
+		D292B642229C66EA00869EBF /* Storage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292B640229C66EA00869EBF /* Storage+Data.swift */; };
+		D292B643229C66EA00869EBF /* Storage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292B640229C66EA00869EBF /* Storage+Data.swift */; };
+		D292B644229C66EA00869EBF /* Storage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292B640229C66EA00869EBF /* Storage+Data.swift */; };
 		D2A64550229BF6C700EF358F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6454F229BF6C700EF358F /* Storage.swift */; };
 		D2A64551229C00FA00EF358F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6454F229BF6C700EF358F /* Storage.swift */; };
 		D2A64552229C00FA00EF358F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6454F229BF6C700EF358F /* Storage.swift */; };
@@ -90,6 +94,7 @@
 		D284B1411F79081F00D94AF3 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		D284B1421F79081F00D94AF3 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		D284B1431F79081F00D94AF3 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
+		D292B640229C66EA00869EBF /* Storage+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Data.swift"; sourceTree = "<group>"; };
 		D2A6454E229BF6B300EF358F /* EasyStash.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = EasyStash.podspec; sourceTree = "<group>"; };
 		D2A6454F229BF6C700EF358F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		D2A64554229C11A900EF358F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -244,6 +249,7 @@
 				D2A64567229C28DA00EF358F /* Storage+Image.swift */,
 				D2A6456C229C290E00EF358F /* Options.swift */,
 				D2A64571229C2A4300EF358F /* Storage+Info.swift */,
+				D292B640229C66EA00869EBF /* Storage+Data.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 			files = (
 				D2A64552229C00FA00EF358F /* Storage.swift in Sources */,
 				D2A6456A229C28DA00EF358F /* Storage+Image.swift in Sources */,
+				D292B643229C66EA00869EBF /* Storage+Data.swift in Sources */,
 				D2A64560229C28AE00EF358F /* Utils.swift in Sources */,
 				D2A6456F229C290E00EF358F /* Options.swift in Sources */,
 				D2A64565229C28D400EF358F /* Storage+Codable.swift in Sources */,
@@ -573,6 +580,7 @@
 			files = (
 				D2A64553229C00FB00EF358F /* Storage.swift in Sources */,
 				D2A6456B229C28DA00EF358F /* Storage+Image.swift in Sources */,
+				D292B644229C66EA00869EBF /* Storage+Data.swift in Sources */,
 				D2A64561229C28AE00EF358F /* Utils.swift in Sources */,
 				D2A64570229C290E00EF358F /* Options.swift in Sources */,
 				D2A64566229C28D400EF358F /* Storage+Codable.swift in Sources */,
@@ -586,6 +594,7 @@
 			files = (
 				D2A64550229BF6C700EF358F /* Storage.swift in Sources */,
 				D2A64568229C28DA00EF358F /* Storage+Image.swift in Sources */,
+				D292B641229C66EA00869EBF /* Storage+Data.swift in Sources */,
 				D2A6455E229C28AE00EF358F /* Utils.swift in Sources */,
 				D2A6456D229C290E00EF358F /* Options.swift in Sources */,
 				D2A64563229C28D400EF358F /* Storage+Codable.swift in Sources */,
@@ -610,6 +619,7 @@
 			files = (
 				D2A64551229C00FA00EF358F /* Storage.swift in Sources */,
 				D2A64569229C28DA00EF358F /* Storage+Image.swift in Sources */,
+				D292B642229C66EA00869EBF /* Storage+Data.swift in Sources */,
 				D2A6455F229C28AE00EF358F /* Utils.swift in Sources */,
 				D2A6456E229C290E00EF358F /* Options.swift in Sources */,
 				D2A64564229C28D400EF358F /* Storage+Codable.swift in Sources */,

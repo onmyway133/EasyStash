@@ -18,6 +18,7 @@ EasyStash is an easy and lightweight persistence framework in Swift. With simple
 - [x] Synchronous APIs with explicit try catch
 - [x] Persist UIImage/NSImage
 - [x] Persist Codable objects, including primitive types
+- [x] Persist Data
 - [x] Test coverage
 
 ## Usage
@@ -39,11 +40,11 @@ Memory cache is checked first before doing disk operations, so we won't hit disk
 
 ### Saving and loading images
 
-Works for both UIImage and NSImage
+Works for both UIImage and NSImage. Because image and data loading uses the same signatures, we need to explicitly specify type
 
 ```swift
 try storage.save(image, forKey: "image")
-let loadedImage = try storage.load(forKey: "image")
+let loadedImage: UIImage = try storage.load(forKey: "image")
 ```
 
 ### Saving and loading Codable objects
@@ -59,6 +60,13 @@ try storage.save(cities, forKey: "cities")
 
 let loadedUser = try storage.load(forKey: "user", as: User.self)
 let loadedCities = try storage.load(forKey: "cities", as: [City].self)
+```
+
+### Saving and loading Data
+
+```swift
+try storage.save(object: data, forKey: "data")
+let loadedData: Data = try storage.load(forKey: "data")
 ```
 
 ### Saving and loading primitives
