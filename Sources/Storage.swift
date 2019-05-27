@@ -60,6 +60,10 @@ public class Storage {
         try fileManager.removeItem(at: folderUrl)
         try createDirectoryIfNeeded(folderUrl: folderUrl)
     }
+
+    public func remove(key: String) throws {
+        try fileManager.removeItem(at: fileUrl(key: key))
+    }
 }
 
 public extension Storage {

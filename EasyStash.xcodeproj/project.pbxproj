@@ -21,6 +21,9 @@
 		D2A64551229C00FA00EF358F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6454F229BF6C700EF358F /* Storage.swift */; };
 		D2A64552229C00FA00EF358F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6454F229BF6C700EF358F /* Storage.swift */; };
 		D2A64553229C00FB00EF358F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6454F229BF6C700EF358F /* Storage.swift */; };
+		D2A64555229C11A900EF358F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64554229C11A900EF358F /* User.swift */; };
+		D2A64556229C11A900EF358F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64554229C11A900EF358F /* User.swift */; };
+		D2A64557229C11A900EF358F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A64554229C11A900EF358F /* User.swift */; };
 		D5B2E8AA1C3A780C00C0327D /* EasyStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2E89F1C3A780C00C0327D /* EasyStash.framework */; };
 		D5C6294A1C3A7FAA007F7B7C /* EasyStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C629401C3A7FAA007F7B7C /* EasyStash.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +69,7 @@
 		D284B1431F79081F00D94AF3 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
 		D2A6454E229BF6B300EF358F /* EasyStash.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = EasyStash.podspec; sourceTree = "<group>"; };
 		D2A6454F229BF6C700EF358F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		D2A64554229C11A900EF358F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D500FD111C3AABED00782D78 /* Playground-iOS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Playground-iOS.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D500FD121C3AAC8E00782D78 /* Playground-macOS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Playground-macOS.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5B2E89F1C3A780C00C0327D /* EasyStash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyStash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				D284B1321F7906DA00D94AF3 /* SharedTests.swift */,
+				D2A64554229C11A900EF358F /* User.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -517,6 +522,7 @@
 			files = (
 				D284B1441F7908B100D94AF3 /* SharedTests.swift in Sources */,
 				D284B13E1F7907AD00D94AF3 /* tvOSTests.swift in Sources */,
+				D2A64557229C11A900EF358F /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +548,7 @@
 			files = (
 				D284B1461F7908B300D94AF3 /* SharedTests.swift in Sources */,
 				D284B1471F7908B800D94AF3 /* iOSTests.swift in Sources */,
+				D2A64555229C11A900EF358F /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +566,7 @@
 			files = (
 				D284B1451F7908B200D94AF3 /* SharedTests.swift in Sources */,
 				D284B1481F7908BB00D94AF3 /* macOSTests.swift in Sources */,
+				D2A64556229C11A900EF358F /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,12 +913,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/EasyStashTests/Info-iOS-Tests.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = no.hyper.EasyStashTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -922,12 +925,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/EasyStashTests/Info-iOS-Tests.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = no.hyper.EasyStashTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -984,12 +982,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/EasyStashTests/Info-macOS-Tests.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "no.hyper.EasyStash-MacTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1003,12 +996,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/EasyStashTests/Info-macOS-Tests.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "no.hyper.EasyStash-MacTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
