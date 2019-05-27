@@ -18,6 +18,7 @@ EasyStash is an easy and lightweight persistence framework in Swift. With simple
 - [x] Synchronous APIs with explicit try catch
 - [x] Persist UIImage/NSImage
 - [x] Persist Codable objects, including primitive types
+- [x] Test coverage
 
 ## Usage
 
@@ -82,9 +83,38 @@ try storage.exists(forKey: "has_updated_profile")
 Remove file
 
 ```swift
-try storage.remove(forKey: "")
+try storage.remove(forKey: "a flag")
 ```
 
+Remove all files
+
+```swift
+try storage.removeAll()
+```
+
+List all files. Each file has `name`, `url`, `modificationDate` and `size` information
+
+```swift
+let files = try storage.files()
+```
+
+Check folder size
+
+```swift
+let size = try storage.folderSize()
+```
+
+Check if folder has content
+
+```swift
+try storage.isEmpty()
+```
+
+Remove files based on predicate. This is useful when we want to clear expired objects, or objects based certain criteria.
+
+```swift
+try storage.removeAll(predicate: { $0.modificationDate < migrationDate })
+```
 
 ## Installation
 
