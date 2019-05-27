@@ -16,7 +16,7 @@ class iOSTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        let options = Storage.Options()
+        let options = Options()
         storage = try! Storage(options: options)
     }
 
