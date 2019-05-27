@@ -39,8 +39,8 @@ public class Storage {
         try applyAttributesIfAny(folderUrl: folderUrl)
     }
 
-    public func exists(key: String) -> Bool {
-        return fileManager.fileExists(atPath: fileUrl(key: key).path)
+    public func exists(forKey key: String) -> Bool {
+        return fileManager.fileExists(atPath: fileUrl(forKey: key).path)
     }
 
     public func removeAll() throws {
@@ -49,8 +49,9 @@ public class Storage {
         try createDirectoryIfNeeded(folderUrl: folderUrl)
     }
 
-    public func remove(key: String) throws {
-        try fileManager.removeItem(at: fileUrl(key: key))
+    public func remove(forKey key: String) throws {
+        cache.removeObject(forKey: key as NSString)
+        try fileManager.removeItem(at: fileUrl(forKey: key))
     }
 }
 
@@ -77,7 +78,7 @@ extension Storage {
         #endif
     }
 
-    func fileUrl(key: String) -> URL {
+    func fileUrl(forKey key: String) -> URL {
         return folderUrl.appendingPathComponent(key)
     }
 }

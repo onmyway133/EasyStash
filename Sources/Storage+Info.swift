@@ -56,7 +56,7 @@ public extension Storage {
         let files = try self.files().filter(predicate)
         try files.forEach {
             cache.removeObject(forKey: $0.name as NSString)
-            try remove(key: $0.name)
+            try remove(forKey: $0.name)
         }
     }
 }

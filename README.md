@@ -21,7 +21,7 @@ EasyStash is an easy and lightweight persistence framework in Swift. With simple
 
 ## Usage
 
-The main and only class is `Storage` which encapsulates memory and disk cache.
+The main and only class is `Storage` which encapsulates memory and disk cache. All operations involving disk are error prone, we need to handle error explicitly.
 
 With `Options`, we can customize `folder` name, `searchPathDirectory`, `encoder` and `decoder` for `Codable`
 
@@ -29,7 +29,62 @@ With `Options`, we can customize `folder` name, `searchPathDirectory`, `encoder`
 let options = Options()
 options.folder = "Users"
 storage = try! Storage(options: options)
+
+try storage.save(image, forKey: "image")
+try storage.save(users, forKey: "codable")
 ```
+
+Memory cache is checked first before doing disk operations, so we won't hit disk that often.
+
+### Saving and loading images
+
+Works for both UIImage and NSImage
+
+```swift
+try storage.save(image, forKey: "image")
+let loadedImage = try storage.load(forKey: "image")
+```
+
+### Saving and loading Codable objects
+
+Uses `JSONEncoder` and `JSONDecoder` under the hood to serialize and deserialize to and from `Data`
+
+```swift
+let user = User(name: "A", age: 10)
+let cities = [City(name: "Oslo"), City(name: "New York")]
+
+try storage.save(users, forKey: "user")
+try storage.save(cities, forKey: "cities")
+
+let loadedUser = try storage.load(forKey: "user", as: User.self)
+let loadedCities = try storage.load(forKey: "cities", as: [City].self)
+```
+
+### Saving and loading primitives
+
+Although primitives like `Int, String, Bool` conform to `Codable`, they can't be serialized into `Data` using `JSONEncoder` because json needs root object. This framework handles this case, so you can just save and load as normal
+
+```swift
+try storage.save(100, forKey: "an int")
+try storage.save(isLoggedIn, forKey: "a boolean")
+```
+
+### Folder informations
+
+EasyStash includes some helpful functions to check file and folder within its `Storage`.
+
+Check if file exists
+
+```swift
+try storage.exists(forKey: "has_updated_profile")
+```
+
+Remove file
+
+```swift
+try storage.remove(forKey: "")
+```
+
 
 ## Installation
 
