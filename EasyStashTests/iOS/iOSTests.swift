@@ -20,6 +20,12 @@ class iOSTests: XCTestCase {
         storage = try! Storage(options: options)
     }
 
+    override func tearDown() {
+        super.tearDown()
+
+        try? storage.removeAll()
+    }
+
     func testObject() {
         let users = [
             User(city: "Oslo", name: "A"),
@@ -54,6 +60,21 @@ class iOSTests: XCTestCase {
 
             try storage.remove(key: "image")
             XCTAssertFalse(storage.exists(key: "image"))
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func testPrimitive() {
+        do {
+            try storage.save(object: 1, key: "number")
+            try storage.save(object: "Hello", key: "string")
+
+            let number = try storage.load(key: "number", as: Int.self)
+            let string = try storage.load(key: "string", as: String.self)
+
+            XCTAssertEqual(number, 1)
+            XCTAssertEqual(string, "Hello")
         } catch {
             XCTFail(error.localizedDescription)
         }
