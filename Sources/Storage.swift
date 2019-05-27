@@ -47,7 +47,10 @@ public class Storage {
             create: true
         )
 
-        self.folderUrl = url.appendingPathComponent(options.folder, isDirectory: true)
+        self.folderUrl = url
+            .appendingPathComponent(Bundle.main.bundleIdentifier ?? "")
+            .appendingPathComponent(options.folder, isDirectory: true)
+
         try createDirectoryIfNeeded(folderUrl: folderUrl)
         try applyAttributesIfAny(folderUrl: folderUrl)
     }
