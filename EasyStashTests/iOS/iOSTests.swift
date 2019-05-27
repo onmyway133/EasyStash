@@ -86,6 +86,7 @@ class iOSTests: XCTestCase {
         do {
             try storage.save(object: image, key: "image")
             XCTAssertEqual(try storage.folderSize(), 2425)
+            XCTAssertEqual(try storage.isEmpty(), false)
         } catch {
             XCTFail(error.localizedDescription)
         }

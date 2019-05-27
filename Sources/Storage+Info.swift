@@ -24,4 +24,10 @@ public extension Storage {
 
         return totalSize
     }
+
+    /// Check if folder has no files
+    func isEmpty() throws -> Bool {
+        let contents = try fileManager.contentsOfDirectory(atPath: folderUrl.path)
+        return contents.isEmpty
+    }
 }
