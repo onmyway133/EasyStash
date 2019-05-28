@@ -10,10 +10,7 @@ import Foundation
 
 public extension Storage {
     func save(object: Data, forKey key: String) throws {
-        cache.setObject(object as AnyObject, forKey: key as NSString)
-        try fileManager
-            .createFile(atPath: fileUrl(forKey: key).path, contents: object, attributes: nil)
-            .trueOrThrow(StorageError.createFile)
+        try commonSave(object: object as AnyObject, forKey: key, toData: { object })
     }
 
     func load(forKey key: String) throws -> Data {

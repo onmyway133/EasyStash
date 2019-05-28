@@ -10,22 +10,15 @@ import Foundation
 
 public extension Storage {
     func save<T: Codable>(object: T, forKey key: String) throws {
-        cache.setObject(object as AnyObject, forKey: key as NSString)
         let encoder = options.encoder
-
-        func innerSave<T: Codable>(_ object: T) throws {
-            let data = try encoder.encode(object)
-            try fileManager
-                .createFile(atPath: fileUrl(forKey: key).path, contents: data, attributes: nil)
-                .trueOrThrow(StorageError.createFile)
-        }
-
-        do {
-            try innerSave(object)
-        } catch {
-            let typeWrapper = TypeWrapper(object: object)
-            try innerSave(typeWrapper)
-        }
+        try commonSave(object: object as AnyObject, forKey: key, toData: {
+            do {
+                return try encoder.encode(object)
+            } catch {
+                let typeWrapper = TypeWrapper(object: object)
+                return try encoder.encode(typeWrapper)
+            }
+        })
     }
 
     func load<T: Codable>(forKey key: String, as: T.Type) throws -> T {

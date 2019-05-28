@@ -82,3 +82,13 @@ extension Storage {
         return folderUrl.appendingPathComponent(key)
     }
 }
+
+extension Storage {
+    func commonSave(object: AnyObject, forKey key: String, toData: () throws -> Data) throws {
+        let data = try toData()
+        cache.setObject(object, forKey: key as NSString)
+        try fileManager
+            .createFile(atPath: fileUrl(forKey: key).path, contents: data, attributes: nil)
+            .trueOrThrow(StorageError.createFile)
+    }
+}

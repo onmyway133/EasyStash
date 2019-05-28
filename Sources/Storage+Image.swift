@@ -14,11 +14,9 @@ import AppKit
 
 public extension Storage {
     func save(object: Image, forKey key: String) throws {
-        cache.setObject(object as AnyObject, forKey: key as NSString)
-        let data = try unwrapOrThrow(Utils.data(image: object), StorageError.encodeData)
-        try fileManager
-            .createFile(atPath: fileUrl(forKey: key).path, contents: data, attributes: nil)
-            .trueOrThrow(StorageError.createFile)
+        try commonSave(object: object as AnyObject, forKey: key, toData: {
+            return try unwrapOrThrow(Utils.data(image: object), StorageError.encodeData)
+        })
     }
 
     func load(forKey key: String) throws -> Image {
