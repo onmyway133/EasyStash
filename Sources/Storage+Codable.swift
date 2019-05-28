@@ -35,12 +35,8 @@ public extension Storage {
             }
         }
 
-        if let object = cache.object(forKey: key as NSString) as? T {
-            return object
-        } else {
-            let object = try loadFromDisk(forKey: key, as: T.self)
-            cache.setObject(object as AnyObject, forKey: key as NSString)
-            return object
-        }
+        return try commonLoad(forKey: key, fromData: { data in
+            return try loadFromDisk(forKey: key, as: T.self)
+        })
     }
 }

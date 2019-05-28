@@ -14,12 +14,6 @@ public extension Storage {
     }
 
     func load(forKey key: String) throws -> Data {
-        if let object = cache.object(forKey: key as NSString) as? Data {
-            return object
-        } else {
-            let data = try Data(contentsOf: fileUrl(forKey: key))
-            cache.setObject(data as AnyObject, forKey: key as NSString)
-            return data
-        }
+        return try commonLoad(forKey: key, fromData: { $0 })
     }
 }

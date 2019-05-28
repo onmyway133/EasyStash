@@ -20,13 +20,8 @@ public extension Storage {
     }
 
     func load(forKey key: String) throws -> Image {
-        if let object = cache.object(forKey: key as NSString) as? Image {
-            return object
-        } else {
-            let data = try Data(contentsOf: fileUrl(forKey: key))
-            let object = try unwrapOrThrow(Utils.image(data: data), StorageError.decodeData)
-            cache.setObject(object as AnyObject, forKey: key as NSString)
-            return object
-        }
+        return try commonLoad(forKey: key, fromData: { data in
+            return try unwrapOrThrow(Utils.image(data: data), StorageError.decodeData)
+        })
     }
 }

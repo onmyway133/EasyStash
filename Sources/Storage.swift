@@ -91,4 +91,15 @@ extension Storage {
             .createFile(atPath: fileUrl(forKey: key).path, contents: data, attributes: nil)
             .trueOrThrow(StorageError.createFile)
     }
+
+    func commonLoad<T>(forKey key: String, fromData: (Data) throws -> T) throws -> T {
+        if let object = cache.object(forKey: key as NSString) as? T {
+            return object
+        } else {
+            let data = try Data(contentsOf: fileUrl(forKey: key))
+            let object = try fromData(data)
+            cache.setObject(object as AnyObject, forKey: key as NSString)
+            return object
+        }
+    }
 }
