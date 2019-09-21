@@ -25,6 +25,8 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+EasyStash.xcodeproj/project.xcworkspace
+EasyStash.xcodeproj/xcshareddata
 
 # CocoaPods
 Pods
