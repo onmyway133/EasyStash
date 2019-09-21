@@ -46,7 +46,7 @@ class macOSTests: XCTestCase {
         do {
             try storage.save(object: image, forKey: "image")
             storage.cache.removeAllObjects()
-            let loadedImage = try storage.load(forKey: "image")
+            let loadedImage: Image = try storage.load(forKey: "image")
             XCTAssertEqual(loadedImage.size, CGSize(width: 100, height: 100))
 
             try storage.remove(forKey: "image")
