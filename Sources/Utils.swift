@@ -7,10 +7,10 @@
 //
 
 import Foundation
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 public typealias Image = UIImage
-#elseif os(OSX)
+#elseif canImport(AppKit)
 import AppKit
 public typealias Image = NSImage
 #endif
@@ -46,18 +46,22 @@ public struct TypeWrapper<T: Codable>: Codable {
 
 class Utils {
     static func image(data: Data) -> Image? {
-        #if os(iOS) || os(tvOS)
+        #if canImport(UIKit)
         return UIImage(data: data)
-        #elseif os(OSX)
+        #elseif canImport(AppKit)
         return NSImage(data: data)
+        #else
+        return nil
         #endif
     }
 
     static func data(image: Image) -> Data? {
-        #if os(iOS) || os(tvOS)
+        #if canImport(UIKit)
         return image.jpegData(compressionQuality: 0.9)
-        #elseif os(OSX)
+        #elseif canImport(AppKit)
         return image.tiffRepresentation
+        #else
+        return nil
         #endif
     }
 }
