@@ -6,9 +6,9 @@
 //  Copyright © 2019 Khoa Pham. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
-#elseif os(OSX)
+#elseif canImport(AppKit)
 import AppKit
 #endif
 
