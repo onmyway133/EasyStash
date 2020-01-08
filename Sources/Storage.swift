@@ -78,7 +78,7 @@ extension Storage {
     }
 
     func fileUrl(forKey key: String) -> URL {
-        return folderUrl.appendingPathComponent(key)
+        return folderUrl.appendingPathComponent(key, isDirectory: false)
     }
 }
 
