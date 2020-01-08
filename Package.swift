@@ -21,10 +21,6 @@ let package = Package(
         .target(
             name: "EasyStash",
             dependencies: [],
-            path: "Sources"),
-        .testTarget(
-            name: "EasyStashTests",
-            dependencies: ["EasyStash"],
-            path: "EasyStashTests"),
+            path: "Sources")
     ]
 )
