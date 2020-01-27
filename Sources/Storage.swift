@@ -13,6 +13,8 @@ public enum StorageError: Error {
     case encodeData
     case decodeData
     case createFile
+    case missingFileAttributeKey(key: FileAttributeKey)
+    case expired(maxAge: Double)
 }
 
 public class Storage {
@@ -91,7 +93,15 @@ extension Storage {
             .trueOrThrow(StorageError.createFile)
     }
 
-    func commonLoad<T>(forKey key: String, fromData: (Data) throws -> T) throws -> T {
+    func commonLoad<T>(forKey key: String, withMaxAge maxAge: TimeInterval, fromData: (Data) throws -> T) throws -> T {
+        func verify(maxAge: TimeInterval, forKey key: String) throws -> Bool {
+            Date().timeIntervalSince(try modificationDate(forKey: key)) <= maxAge
+        }
+        
+        guard try verify(maxAge: maxAge, forKey: key) else {
+            throw StorageError.expired(maxAge: maxAge)
+        }
+        
         if let object = cache.object(forKey: key as NSString) as? T {
             return object
         } else {

@@ -9,7 +9,6 @@
 import Foundation
 
 public extension Storage {
-
     /// Get folder size in byte
     func folderSize() throws -> UInt64 {
         var totalSize: UInt64 = 0
@@ -33,21 +32,7 @@ public extension Storage {
 
     func files() throws -> [File] {
         let contents = try fileManager.contentsOfDirectory(atPath: folderUrl.path)
-        let files: [File] = try contents.map({ content in
-            let fileUrl = folderUrl.appendingPathComponent(content)
-            let attributes = try fileManager.attributesOfItem(atPath: fileUrl.path)
-            let modificationDate: Date? = attributes[.modificationDate] as? Date
-            let size: UInt64? = attributes[.size] as? UInt64
-
-            return File(
-                name: content,
-                url: fileUrl,
-                modificationDate:
-                modificationDate,
-                size: size
-            )
-        })
-
+        let files: [File] = try contents.map { try file(forKey: $0) }
         return files
     }
 
@@ -58,5 +43,27 @@ public extension Storage {
             cache.removeObject(forKey: $0.name as NSString)
             try remove(forKey: $0.name)
         }
+    }
+    
+    func file(forKey key: String) throws -> File {
+        let fileUrl = self.fileUrl(forKey: key)
+        let attributes = try fileManager.attributesOfItem(atPath: fileUrl.path)
+        let modificationDate: Date? = attributes[.modificationDate] as? Date
+        let size: UInt64? = attributes[.size] as? UInt64
+
+        return File(
+            name: key,
+            url: fileUrl,
+            modificationDate:
+            modificationDate,
+            size: size
+        )
+    }
+    
+    func modificationDate(forKey key: String) throws -> Date {
+        guard let modificationDate = try file(forKey: key).modificationDate else {
+            throw StorageError.missingFileAttributeKey(key: .modificationDate)
+        }
+        return modificationDate
     }
 }

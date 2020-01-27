@@ -13,7 +13,7 @@ public extension Storage {
         try commonSave(object: object as AnyObject, forKey: key, toData: { object })
     }
 
-    func load(forKey key: String) throws -> Data {
-        return try commonLoad(forKey: key, fromData: { $0 })
+    func load(forKey key: String, withMaxAge maxAge: TimeInterval = .greatestFiniteMagnitude) throws -> Data {
+        return try commonLoad(forKey: key, withMaxAge: maxAge, fromData: { $0 })
     }
 }
