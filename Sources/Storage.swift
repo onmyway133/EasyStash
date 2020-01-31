@@ -82,6 +82,12 @@ extension Storage {
     func fileUrl(forKey key: String) -> URL {
         return folderUrl.appendingPathComponent(key, isDirectory: false)
     }
+    
+    func verify(maxAge: TimeInterval,
+                forKey key: String,
+                fromDate date: @escaping (() -> Date) = { Date() }) throws -> Bool {
+        date().timeIntervalSince(try modificationDate(forKey: key)) <= maxAge
+    }
 }
 
 extension Storage {
@@ -93,13 +99,17 @@ extension Storage {
             .trueOrThrow(StorageError.createFile)
     }
 
-    func commonLoad<T>(forKey key: String, withMaxAge maxAge: TimeInterval, fromData: (Data) throws -> T) throws -> T {
-        func verify(maxAge: TimeInterval, forKey key: String) throws -> Bool {
-            Date().timeIntervalSince(try modificationDate(forKey: key)) <= maxAge
-        }
-        
-        guard try verify(maxAge: maxAge, forKey: key) else {
-            throw StorageError.expired(maxAge: maxAge)
+    func commonLoad<T>(forKey key: String,
+                       withExpiry expiry: Expiry,
+                       fromDate date: @escaping (() -> Date) = { Date() },
+                       fromData: (Data) throws -> T) throws -> T {
+        switch expiry {
+        case .never:
+            break
+        case .maxAge(let maxAge):
+            guard try verify(maxAge: maxAge, forKey: key, fromDate: date) else {
+                throw StorageError.expired(maxAge: maxAge)
+            }
         }
         
         if let object = cache.object(forKey: key as NSString) as? T {
@@ -110,5 +120,12 @@ extension Storage {
             cache.setObject(object as AnyObject, forKey: key as NSString)
             return object
         }
+    }
+}
+
+extension Storage {
+    public enum Expiry {
+        case never
+        case maxAge(maxAge: TimeInterval)
     }
 }

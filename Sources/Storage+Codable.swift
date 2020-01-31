@@ -21,7 +21,7 @@ public extension Storage {
         })
     }
 
-    func load<T: Codable>(forKey key: String, as: T.Type, maxAge: TimeInterval = .greatestFiniteMagnitude) throws -> T {
+    func load<T: Codable>(forKey key: String, as: T.Type, withExpiry expiry: Expiry = .never) throws -> T {
         func loadFromDisk<T: Codable>(forKey key: String, as: T.Type) throws -> T {
             let data = try Data(contentsOf: fileUrl(forKey: key))
             let decoder = options.decoder
@@ -35,7 +35,7 @@ public extension Storage {
             }
         }
 
-        return try commonLoad(forKey: key, withMaxAge: maxAge, fromData: { data in
+        return try commonLoad(forKey: key, withExpiry: expiry, fromData: { data in
             return try loadFromDisk(forKey: key, as: T.self)
         })
     }

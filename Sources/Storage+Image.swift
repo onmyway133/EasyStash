@@ -19,8 +19,8 @@ public extension Storage {
         })
     }
 
-    func load(forKey key: String, withMaxAge maxAge: TimeInterval = .greatestFiniteMagnitude) throws -> Image {
-        return try commonLoad(forKey: key, withMaxAge: maxAge, fromData: { data in
+    func load(forKey key: String, withExpiry expiry: Expiry = .never) throws -> Image {
+        return try commonLoad(forKey: key, withExpiry: expiry, fromData: { data in
             return try unwrapOrThrow(Utils.image(data: data), StorageError.decodeData)
         })
     }
