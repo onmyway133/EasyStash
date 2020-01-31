@@ -9,6 +9,9 @@
 import XCTest
 import EasyStash
 
+#if canImport(AppKit)
+import AppKit
+
 class macOSTests: XCTestCase {
     var storage: Storage!
 
@@ -56,3 +59,5 @@ class macOSTests: XCTestCase {
         }
     }
 }
+
+#endif
