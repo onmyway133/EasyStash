@@ -54,8 +54,7 @@ public extension Storage {
         return File(
             name: key,
             url: fileUrl,
-            modificationDate:
-            modificationDate,
+            modificationDate: modificationDate,
             size: size
         )
     }
