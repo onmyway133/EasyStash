@@ -58,7 +58,8 @@ public class Storage {
 
 extension Storage {
     func createDirectoryIfNeeded(folderUrl: URL) throws {
-        guard !fileManager.fileExists(atPath: folderUrl.path) else {
+        var isDirectory = ObjCBool(true)
+        guard !fileManager.fileExists(atPath: folderUrl.path, isDirectory: &isDirectory) else {
             return
         }
 

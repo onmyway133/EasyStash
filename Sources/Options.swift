@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Options {
-    public var searchPathDirectory: FileManager.SearchPathDirectory = .cachesDirectory
+    public var searchPathDirectory: FileManager.SearchPathDirectory = .applicationSupportDirectory
     public var folder: String = (Bundle.main.bundleIdentifier ?? "").appending("/Default")
     public var encoder: JSONEncoder = JSONEncoder()
     public var decoder: JSONDecoder = JSONDecoder()
