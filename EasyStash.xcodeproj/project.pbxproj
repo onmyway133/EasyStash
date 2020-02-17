@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		"EasyStash::EasyStashPackageTests::ProductTarget" /* EasyStashPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_55 /* Build configuration list for PBXAggregateTarget "EasyStashPackageTests" */;
+			buildConfigurationList = OBJ_54 /* Build configuration list for PBXAggregateTarget "EasyStashPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_58 /* PBXTargetDependency */,
+				OBJ_57 /* PBXTargetDependency */,
 			);
 			name = EasyStashPackageTests;
 			productName = EasyStashPackageTests;
@@ -21,33 +21,33 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		OBJ_40 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* Options.swift */; };
-		OBJ_41 /* Storage+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Storage+Codable.swift */; };
-		OBJ_42 /* Storage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Storage+Data.swift */; };
-		OBJ_43 /* Storage+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Storage+Image.swift */; };
-		OBJ_44 /* Storage+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Storage+Info.swift */; };
-		OBJ_45 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Storage.swift */; };
-		OBJ_46 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Utils.swift */; };
-		OBJ_53 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_64 /* EasyStashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* EasyStashTests.swift */; };
-		OBJ_65 /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* ImageGenerate.swift */; };
-		OBJ_66 /* SharedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* SharedTests.swift */; };
-		OBJ_67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* User.swift */; };
-		OBJ_68 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* XCTestManifests.swift */; };
-		OBJ_69 /* iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* iOSTests.swift */; };
-		OBJ_70 /* macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* macOSTests.swift */; };
-		OBJ_72 /* EasyStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "EasyStash::EasyStash::Product" /* EasyStash.framework */; };
+		OBJ_39 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* Options.swift */; };
+		OBJ_40 /* Storage+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Storage+Codable.swift */; };
+		OBJ_41 /* Storage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Storage+Data.swift */; };
+		OBJ_42 /* Storage+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Storage+Image.swift */; };
+		OBJ_43 /* Storage+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Storage+Info.swift */; };
+		OBJ_44 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Storage.swift */; };
+		OBJ_45 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Utils.swift */; };
+		OBJ_52 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_63 /* EasyStashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* EasyStashTests.swift */; };
+		OBJ_64 /* ImageGenerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* ImageGenerate.swift */; };
+		OBJ_65 /* SharedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* SharedTests.swift */; };
+		OBJ_66 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* User.swift */; };
+		OBJ_67 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* XCTestManifests.swift */; };
+		OBJ_68 /* iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* iOSTests.swift */; };
+		OBJ_69 /* macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* macOSTests.swift */; };
+		OBJ_71 /* EasyStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "EasyStash::EasyStash::Product" /* EasyStash.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CE2C272023F9CC7C00AA2388 /* PBXContainerItemProxy */ = {
+		D223BF8923FB20A0000CD9D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "EasyStash::EasyStash";
 			remoteInfo = EasyStash;
 		};
-		CE2C272123F9CC7C00AA2388 /* PBXContainerItemProxy */ = {
+		D223BF8A23FB20A2000CD9D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -72,31 +72,30 @@
 		OBJ_22 /* iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTests.swift; sourceTree = "<group>"; };
 		OBJ_23 /* macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSTests.swift; sourceTree = "<group>"; };
 		OBJ_27 /* Screenshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Screenshots; sourceTree = SOURCE_ROOT; };
-		OBJ_28 /* Example */ = {isa = PBXFileReference; lastKnownFileType = text; path = Example; sourceTree = SOURCE_ROOT; };
-		OBJ_29 /* Info */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Info; sourceTree = SOURCE_ROOT; };
-		OBJ_30 /* DerivedData */ = {isa = PBXFileReference; lastKnownFileType = text; path = DerivedData; sourceTree = SOURCE_ROOT; };
-		OBJ_31 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		OBJ_32 /* EasyStash.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = EasyStash.podspec; sourceTree = "<group>"; };
-		OBJ_33 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		OBJ_34 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		OBJ_28 /* Info */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Info; sourceTree = SOURCE_ROOT; };
+		OBJ_29 /* DerivedData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DerivedData; sourceTree = SOURCE_ROOT; };
+		OBJ_30 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		OBJ_31 /* EasyStash.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = EasyStash.podspec; sourceTree = "<group>"; };
+		OBJ_32 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_33 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_8 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		OBJ_9 /* Storage+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Codable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_47 /* Frameworks */ = {
+		OBJ_46 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_71 /* Frameworks */ = {
+		OBJ_70 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_72 /* EasyStash.framework in Frameworks */,
+				OBJ_71 /* EasyStash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,13 +142,12 @@
 				OBJ_15 /* Tests */,
 				OBJ_24 /* Products */,
 				OBJ_27 /* Screenshots */,
-				OBJ_28 /* Example */,
-				OBJ_29 /* Info */,
-				OBJ_30 /* DerivedData */,
-				OBJ_31 /* LICENSE.md */,
-				OBJ_32 /* EasyStash.podspec */,
-				OBJ_33 /* README.md */,
-				OBJ_34 /* CONTRIBUTING.md */,
+				OBJ_28 /* Info */,
+				OBJ_29 /* DerivedData */,
+				OBJ_30 /* LICENSE.md */,
+				OBJ_31 /* EasyStash.podspec */,
+				OBJ_32 /* README.md */,
+				OBJ_33 /* CONTRIBUTING.md */,
 			);
 			name = "";
 			sourceTree = "<group>";
@@ -173,10 +171,10 @@
 /* Begin PBXNativeTarget section */
 		"EasyStash::EasyStash" /* EasyStash */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_36 /* Build configuration list for PBXNativeTarget "EasyStash" */;
+			buildConfigurationList = OBJ_35 /* Build configuration list for PBXNativeTarget "EasyStash" */;
 			buildPhases = (
-				OBJ_39 /* Sources */,
-				OBJ_47 /* Frameworks */,
+				OBJ_38 /* Sources */,
+				OBJ_46 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,15 +187,15 @@
 		};
 		"EasyStash::EasyStashTests" /* EasyStashTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_60 /* Build configuration list for PBXNativeTarget "EasyStashTests" */;
+			buildConfigurationList = OBJ_59 /* Build configuration list for PBXNativeTarget "EasyStashTests" */;
 			buildPhases = (
-				OBJ_63 /* Sources */,
-				OBJ_71 /* Frameworks */,
+				OBJ_62 /* Sources */,
+				OBJ_70 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_73 /* PBXTargetDependency */,
+				OBJ_72 /* PBXTargetDependency */,
 			);
 			name = EasyStashTests;
 			productName = EasyStashTests;
@@ -206,9 +204,9 @@
 		};
 		"EasyStash::SwiftPMPackageDescription" /* EasyStashPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_49 /* Build configuration list for PBXNativeTarget "EasyStashPackageDescription" */;
+			buildConfigurationList = OBJ_48 /* Build configuration list for PBXNativeTarget "EasyStashPackageDescription" */;
 			buildPhases = (
-				OBJ_52 /* Sources */,
+				OBJ_51 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -248,54 +246,54 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_39 /* Sources */ = {
+		OBJ_38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_40 /* Options.swift in Sources */,
-				OBJ_41 /* Storage+Codable.swift in Sources */,
-				OBJ_42 /* Storage+Data.swift in Sources */,
-				OBJ_43 /* Storage+Image.swift in Sources */,
-				OBJ_44 /* Storage+Info.swift in Sources */,
-				OBJ_45 /* Storage.swift in Sources */,
-				OBJ_46 /* Utils.swift in Sources */,
+				OBJ_39 /* Options.swift in Sources */,
+				OBJ_40 /* Storage+Codable.swift in Sources */,
+				OBJ_41 /* Storage+Data.swift in Sources */,
+				OBJ_42 /* Storage+Image.swift in Sources */,
+				OBJ_43 /* Storage+Info.swift in Sources */,
+				OBJ_44 /* Storage.swift in Sources */,
+				OBJ_45 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_52 /* Sources */ = {
+		OBJ_51 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_53 /* Package.swift in Sources */,
+				OBJ_52 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_63 /* Sources */ = {
+		OBJ_62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_64 /* EasyStashTests.swift in Sources */,
-				OBJ_65 /* ImageGenerate.swift in Sources */,
-				OBJ_66 /* SharedTests.swift in Sources */,
-				OBJ_67 /* User.swift in Sources */,
-				OBJ_68 /* XCTestManifests.swift in Sources */,
-				OBJ_69 /* iOSTests.swift in Sources */,
-				OBJ_70 /* macOSTests.swift in Sources */,
+				OBJ_63 /* EasyStashTests.swift in Sources */,
+				OBJ_64 /* ImageGenerate.swift in Sources */,
+				OBJ_65 /* SharedTests.swift in Sources */,
+				OBJ_66 /* User.swift in Sources */,
+				OBJ_67 /* XCTestManifests.swift in Sources */,
+				OBJ_68 /* iOSTests.swift in Sources */,
+				OBJ_69 /* macOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_58 /* PBXTargetDependency */ = {
+		OBJ_57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "EasyStash::EasyStashTests" /* EasyStashTests */;
-			targetProxy = CE2C272123F9CC7C00AA2388 /* PBXContainerItemProxy */;
+			targetProxy = D223BF8A23FB20A2000CD9D7 /* PBXContainerItemProxy */;
 		};
-		OBJ_73 /* PBXTargetDependency */ = {
+		OBJ_72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "EasyStash::EasyStash" /* EasyStash */;
-			targetProxy = CE2C272023F9CC7C00AA2388 /* PBXContainerItemProxy */;
+			targetProxy = D223BF8923FB20A0000CD9D7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -327,7 +325,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_37 /* Debug */ = {
+		OBJ_36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
@@ -341,6 +339,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.1.6;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -356,7 +355,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_38 /* Release */ = {
+		OBJ_37 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
@@ -370,6 +369,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 1.1.6;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -409,7 +409,7 @@
 			};
 			name = Release;
 		};
-		OBJ_50 /* Debug */ = {
+		OBJ_49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -418,7 +418,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_51 /* Release */ = {
+		OBJ_50 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -427,19 +427,19 @@
 			};
 			name = Release;
 		};
-		OBJ_56 /* Debug */ = {
+		OBJ_55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_57 /* Release */ = {
+		OBJ_56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		OBJ_61 /* Debug */ = {
+		OBJ_60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -464,7 +464,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_62 /* Release */ = {
+		OBJ_61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -501,38 +501,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_36 /* Build configuration list for PBXNativeTarget "EasyStash" */ = {
+		OBJ_35 /* Build configuration list for PBXNativeTarget "EasyStash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_37 /* Debug */,
-				OBJ_38 /* Release */,
+				OBJ_36 /* Debug */,
+				OBJ_37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_49 /* Build configuration list for PBXNativeTarget "EasyStashPackageDescription" */ = {
+		OBJ_48 /* Build configuration list for PBXNativeTarget "EasyStashPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_50 /* Debug */,
-				OBJ_51 /* Release */,
+				OBJ_49 /* Debug */,
+				OBJ_50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_55 /* Build configuration list for PBXAggregateTarget "EasyStashPackageTests" */ = {
+		OBJ_54 /* Build configuration list for PBXAggregateTarget "EasyStashPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_56 /* Debug */,
-				OBJ_57 /* Release */,
+				OBJ_55 /* Debug */,
+				OBJ_56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_60 /* Build configuration list for PBXNativeTarget "EasyStashTests" */ = {
+		OBJ_59 /* Build configuration list for PBXNativeTarget "EasyStashTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_61 /* Debug */,
-				OBJ_62 /* Release */,
+				OBJ_60 /* Debug */,
+				OBJ_61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
