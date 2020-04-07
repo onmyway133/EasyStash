@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "EasyStash"
   s.summary          = "Easy data persistence in Swift"
-  s.version          = "1.1.4"
+  s.version          = "1.1.7"
   s.homepage         = "https://github.com/onmyway133/EasyStash"
   s.license          = 'MIT'
   s.author           = { "Khoa Pham" => "onmyway133@gmail.com" }
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.13'
   s.tvos.deployment_target = '12.0'
-  s.watchos.deployment_target = "6.0"
+  s.watchos.deployment_target = "5.0"
 
   s.requires_arc = true
   s.ios.source_files = 'Sources/**/*'
