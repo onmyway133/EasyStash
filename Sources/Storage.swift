@@ -26,12 +26,17 @@ public class Storage {
     public init(options: Options) throws {
         self.options = options
 
-        let url = try fileManager.url(
-            for: options.searchPathDirectory,
-            in: .userDomainMask,
-            appropriateFor: nil,
-            create: true
-        )
+        var url: URL
+        if let directoryUrl = options.directoryUrl {
+            url = directoryUrl
+        } else {
+            url = try fileManager.url(
+                for: options.searchPathDirectory,
+                in: .userDomainMask,
+                appropriateFor: nil,
+                create: true
+            )
+        }
 
         self.folderUrl = url
             .appendingPathComponent(options.folder, isDirectory: true)
