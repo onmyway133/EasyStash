@@ -13,6 +13,7 @@ public struct Options {
     public var folder: String = (Bundle.main.bundleIdentifier ?? "").appending("/Default")
     public var encoder: JSONEncoder = JSONEncoder()
     public var decoder: JSONDecoder = JSONDecoder()
+    public var directoryUrl: URL? = nil
 
     public init() {}
 }
