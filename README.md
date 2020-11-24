@@ -169,7 +169,7 @@ github "onmyway133/EasyStash"
 Add EasyStash as a dependency to your Package.swift. For more information, please see the [Swift Package Manager documentation](https://github.com/apple/swift-package-manager/tree/master/Documentation).
 
 ```swift
-.package(url: "https://github.com/onmyway133/EasyStash", from: "1.1.1")
+.package(url: "https://github.com/onmyway133/EasyStash", from: "1.1.7")
 ```
 
 **EasyStash** can also be installed manually. Just download and drop `Sources` folders in your project.

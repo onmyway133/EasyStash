@@ -59,6 +59,10 @@ public class Storage {
         cache.removeObject(forKey: key as NSString)
         try fileManager.removeItem(at: fileUrl(forKey: key))
     }
+
+    public func fileUrl(forKey key: String) -> URL {
+        return folderUrl.appendingPathComponent(key, isDirectory: false)
+    }
 }
 
 extension Storage {
@@ -84,14 +88,12 @@ extension Storage {
             try fileManager.setAttributes(attributes, ofItemAtPath: folderUrl.path)
         #endif
     }
-
-    func fileUrl(forKey key: String) -> URL {
-        return folderUrl.appendingPathComponent(key, isDirectory: false)
-    }
     
-    func verify(maxAge: TimeInterval,
-                forKey key: String,
-                fromDate date: @escaping (() -> Date) = { Date() }) throws -> Bool {
+    func verify(
+        maxAge: TimeInterval,
+        forKey key: String,
+        fromDate date: @escaping (() -> Date) = { Date() }
+    ) throws -> Bool {
         date().timeIntervalSince(try modificationDate(forKey: key)) <= maxAge
     }
 }

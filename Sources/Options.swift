@@ -9,11 +9,21 @@
 import Foundation
 
 public struct Options {
-    public var searchPathDirectory: FileManager.SearchPathDirectory = .applicationSupportDirectory
+    /// By default, files are saved into searchPathDirectory/folder
+    public var searchPathDirectory: FileManager.SearchPathDirectory
     public var folder: String = (Bundle.main.bundleIdentifier ?? "").appending("/Default")
-    public var encoder: JSONEncoder = JSONEncoder()
-    public var decoder: JSONDecoder = JSONDecoder()
+
+    /// Optionally, you can set predefined directory for where to save files
     public var directoryUrl: URL? = nil
 
-    public init() {}
+    public var encoder: JSONEncoder = JSONEncoder()
+    public var decoder: JSONDecoder = JSONDecoder()
+
+    public init() {
+        #if os(tvOS)
+        searchPathDirectory = .cachesDirectory
+        #else
+        searchPathDirectory = .applicationSupportDirectory
+        #endif
+    }
 }
