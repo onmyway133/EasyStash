@@ -120,14 +120,15 @@ extension Storage {
             }
         }
         
-        if let object = cache.object(forKey: key as NSString) as? T {
-            return object
-        } else {
-            let data = try Data(contentsOf: fileUrl(forKey: key))
-            let object = try fromData(data)
-            cache.setObject(object as AnyObject, forKey: key as NSString)
+        if self.options.useMemoryCache,
+            let object = cache.object(forKey: key as NSString) as? T {
             return object
         }
+
+        let data = try Data(contentsOf: fileUrl(forKey: key))
+        let object = try fromData(data)
+        cache.setObject(object as AnyObject, forKey: key as NSString)
+        return object
     }
 }
 
