@@ -29,6 +29,7 @@ public class Storage {
         var url: URL
         if let directoryUrl = options.directoryUrl {
             url = directoryUrl
+            self.folderUrl = directoryUrl
         } else {
             url = try fileManager.url(
                 for: options.searchPathDirectory,
@@ -36,10 +37,8 @@ public class Storage {
                 appropriateFor: nil,
                 create: true
             )
+            self.folderUrl = url.appendingPathComponent(options.folder, isDirectory: true)
         }
-
-        self.folderUrl = url
-            .appendingPathComponent(options.folder, isDirectory: true)
 
         try createDirectoryIfNeeded(folderUrl: folderUrl)
         try applyAttributesIfAny(folderUrl: folderUrl)
