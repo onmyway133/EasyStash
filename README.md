@@ -1,4 +1,4 @@
-❤️ Support my apps ❤️ 
+❤️ Support my apps ❤️
 
 - [Push Hero - pure Swift native macOS application to test push notifications](https://onmyway133.com/pushhero)
 - [PastePal - Pasteboard, note and shortcut manager](https://onmyway133.com/pastepal)
@@ -36,15 +36,22 @@ EasyStash is an easy and lightweight persistence framework in Swift. With simple
 
 The main and only class is `Storage` which encapsulates memory and disk cache. All operations involving disk are error prone, we need to handle error explicitly.
 
-With `Options`, we can customize `folder` name, `searchPathDirectory`, `encoder` and `decoder` for `Codable`
+With `Options`, we can customize `folder` name, `searchPathDirectory`, `encoder` and `decoder` for `Codable`. By default, `folder` and `searchPathDirectory` specify that files will be saved at `/Library/Application Support/{BUNDLE_ID}/Default/`
 
 ```swift
-let options = Options()
-options.folder = "Users"
-storage = try! Storage(options: options)
+var storage: Storage? = nil
 
-try storage.save(image, forKey: "image")
-try storage.save(users, forKey: "codable")
+var options: Options = Options()
+options.folder = "Users"
+
+storage = try? Storage(options: options)
+
+do {
+    try storage?.save(image, forKey: "image")
+    try storage?.save(users, forKey: "codable")
+} catch {
+    print(error)
+}
 ```
 
 Memory cache is checked first before doing disk operations, so we won't hit disk that often.
@@ -144,7 +151,7 @@ DispatchQueue.global().async {
     do {
         try storage.save(largeImage, forKey: "large_image")
     } catch {
-        
+
     }
 }
 ```
