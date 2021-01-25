@@ -15,6 +15,9 @@ public struct Options {
 
     /// Optionally, you can set predefined directory for where to save files
     public var directoryUrl: URL? = nil
+    
+    /// Set to false to by-pass in-memory cache
+    public var useMemoryCache: Bool = true
 
     public var encoder: JSONEncoder = JSONEncoder()
     public var decoder: JSONDecoder = JSONDecoder()

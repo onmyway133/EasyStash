@@ -29,6 +29,7 @@ public class Storage {
         var url: URL
         if let directoryUrl = options.directoryUrl {
             url = directoryUrl
+            self.folderUrl = directoryUrl
         } else {
             url = try fileManager.url(
                 for: options.searchPathDirectory,
@@ -36,10 +37,8 @@ public class Storage {
                 appropriateFor: nil,
                 create: true
             )
+            self.folderUrl = url.appendingPathComponent(options.folder, isDirectory: true)
         }
-
-        self.folderUrl = url
-            .appendingPathComponent(options.folder, isDirectory: true)
 
         try createDirectoryIfNeeded(folderUrl: folderUrl)
         try applyAttributesIfAny(folderUrl: folderUrl)
@@ -120,14 +119,15 @@ extension Storage {
             }
         }
         
-        if let object = cache.object(forKey: key as NSString) as? T {
-            return object
-        } else {
-            let data = try Data(contentsOf: fileUrl(forKey: key))
-            let object = try fromData(data)
-            cache.setObject(object as AnyObject, forKey: key as NSString)
+        if self.options.useMemoryCache,
+            let object = cache.object(forKey: key as NSString) as? T {
             return object
         }
+
+        let data = try Data(contentsOf: fileUrl(forKey: key))
+        let object = try fromData(data)
+        cache.setObject(object as AnyObject, forKey: key as NSString)
+        return object
     }
 }
 
