@@ -7,12 +7,13 @@
 //
 
 import Foundation
+
 #if canImport(UIKit)
-import UIKit
-public typealias Image = UIImage
+    import UIKit
+    public typealias Image = UIImage
 #elseif canImport(AppKit)
-import AppKit
-public typealias Image = NSImage
+    import AppKit
+    public typealias Image = NSImage
 #endif
 
 func unwrapOrThrow<T>(_ optional: Optional<T>, _ error: Error) throws -> T {
@@ -47,21 +48,21 @@ public struct TypeWrapper<T: Codable>: Codable {
 class Utils {
     static func image(data: Data) -> Image? {
         #if canImport(UIKit)
-        return UIImage(data: data)
+            return UIImage(data: data)
         #elseif canImport(AppKit)
-        return NSImage(data: data)
+            return NSImage(data: data)
         #else
-        return nil
+            return nil
         #endif
     }
 
     static func data(image: Image) -> Data? {
         #if canImport(UIKit)
-        return image.jpegData(compressionQuality: 0.9)
+            return image.jpegData(compressionQuality: 0.9)
         #elseif canImport(AppKit)
-        return image.tiffRepresentation
+            return image.tiffRepresentation
         #else
-        return nil
+            return nil
         #endif
     }
 }

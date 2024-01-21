@@ -21,9 +21,9 @@ public struct Options {
 
     public init() {
         #if os(tvOS)
-        searchPathDirectory = .cachesDirectory
+            searchPathDirectory = .cachesDirectory
         #else
-        searchPathDirectory = .applicationSupportDirectory
+            searchPathDirectory = .applicationSupportDirectory
         #endif
     }
 }

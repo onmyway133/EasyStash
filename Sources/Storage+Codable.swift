@@ -22,7 +22,7 @@ public extension Storage {
     }
 
     func load<T: Codable>(forKey key: String, as: T.Type, withExpiry expiry: Expiry = .never) throws -> T {
-        func loadFromDisk<T: Codable>(forKey key: String, as: T.Type) throws -> T {
+        func loadFromDisk(forKey key: String, as: T.Type) throws -> T {
             let data = try Data(contentsOf: fileUrl(forKey: key))
             let decoder = options.decoder
 

@@ -181,7 +181,11 @@ class iOSTests: XCTestCase {
     func testPerformanceUsingKeyArchiver() {
         let users = Array(0..<10_000).map { _ in User3(city: "Oslo", name: "A") }
         measure {
-            NSKeyedArchiver.archivedData(withRootObject: users)
+            do {
+                try NSKeyedArchiver.archivedData(withRootObject: users, requiringSecureCoding: false)
+            } catch {
+                
+            }    
         }
     }
 }
