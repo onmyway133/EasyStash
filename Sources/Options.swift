@@ -9,12 +9,20 @@
 import Foundation
 
 public struct Options {
+    
+    public enum UIKitImageFormat {
+        case png
+        case jpg
+    }
+
     /// By default, files are saved into searchPathDirectory/folder
     public var searchPathDirectory: FileManager.SearchPathDirectory
     public var folder: String = (Bundle.main.bundleIdentifier ?? "").appending("/Default")
 
     /// Optionally, you can set predefined directory for where to save files
     public var directoryUrl: URL? = nil
+
+    public var uiKitImageFormat: UIKitImageFormat = .jpg
 
     public var encoder: JSONEncoder = JSONEncoder()
     public var decoder: JSONDecoder = JSONDecoder()

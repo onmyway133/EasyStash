@@ -56,9 +56,14 @@ class Utils {
         #endif
     }
 
-    static func data(image: Image) -> Data? {
+    static func data(image: Image, option: Options) -> Data? {
         #if canImport(UIKit)
-            return image.jpegData(compressionQuality: 0.9)
+            switch option.uiKitImageFormat {
+            case .jpg:
+                return image.jpegData(compressionQuality: 0.9)
+            case .png:
+                return image.pngData()
+            }
         #elseif canImport(AppKit)
             return image.tiffRepresentation
         #else
