@@ -15,7 +15,19 @@
 public extension Storage {
     func save(object: Image, forKey key: String) throws {
         try commonSave(object: object as AnyObject, forKey: key, toData: {
-            return try unwrapOrThrow(Utils.data(image: object, option: options), StorageError.encodeData)
+            return try unwrapOrThrow(
+                Utils.data(image: object, uiKitImageFormat: .jpg),
+                StorageError.encodeData
+            )
+        })
+    }
+
+    func save(object: Image, uiKitImageFormat: Options.UIKitImageFormat, forKey key: String) throws {
+        try commonSave(object: object as AnyObject, forKey: key, toData: {
+            return try unwrapOrThrow(
+                Utils.data(image: object, uiKitImageFormat: uiKitImageFormat),
+                StorageError.encodeData
+            )
         })
     }
 

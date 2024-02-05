@@ -22,8 +22,6 @@ public struct Options {
     /// Optionally, you can set predefined directory for where to save files
     public var directoryUrl: URL? = nil
 
-    public var uiKitImageFormat: UIKitImageFormat = .jpg
-
     public var encoder: JSONEncoder = JSONEncoder()
     public var decoder: JSONDecoder = JSONDecoder()
 
