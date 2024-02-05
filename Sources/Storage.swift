@@ -63,6 +63,10 @@ public class Storage {
     public func fileUrl(forKey key: String) -> URL {
         return folderUrl.appendingPathComponent(key, isDirectory: false)
     }
+
+    public func fileList() throws -> [String] {
+        return try fileManager.contentsOfDirectory(atPath: folderUrl.path)
+    }
 }
 
 extension Storage {
