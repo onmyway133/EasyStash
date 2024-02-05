@@ -9,6 +9,12 @@
 import Foundation
 
 public struct Options {
+    
+    public enum UIKitImageFormat {
+        case png
+        case jpg
+    }
+
     /// By default, files are saved into searchPathDirectory/folder
     public var searchPathDirectory: FileManager.SearchPathDirectory
     public var folder: String = (Bundle.main.bundleIdentifier ?? "").appending("/Default")
