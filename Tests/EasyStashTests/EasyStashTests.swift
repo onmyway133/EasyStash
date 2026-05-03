@@ -1,10 +1,1 @@
-import XCTest
-@testable import EasyStash
-
-final class EasyStashTests: XCTestCase {
-    func testExample() {}
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
-}
+// Replaced by Swift Testing suites in iOSTests.swift and macOSTests.swift

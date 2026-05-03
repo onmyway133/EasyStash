@@ -1,9 +1,1 @@
-import XCTest
-
-#if !canImport(ObjectiveC)
-public func allTests() -> [XCTestCaseEntry] {
-    return [
-        testCase(EasyStashTests.allTests),
-    ]
-}
-#endif
+// Linux test manifest — no longer needed with Swift Testing automatic discovery

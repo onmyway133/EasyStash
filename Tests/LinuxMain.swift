@@ -1,7 +1,1 @@
-import XCTest
-
-import EasyStashTests
-
-var tests = [XCTestCaseEntry]()
-tests += EasyStashTests.allTests()
-XCTMain(tests)
+// Linux entry point — no longer needed with Swift Testing automatic discovery

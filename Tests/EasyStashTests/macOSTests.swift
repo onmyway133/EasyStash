@@ -1,62 +1,47 @@
-//
-//  macOSTests
-//  EasyStash-iOS
-//
-//  Created by khoa on 27/05/2019.
-//  Copyright © 2019 Khoa Pham. All rights reserved.
-//
-
-import XCTest
+import Testing
 import EasyStash
 
 #if canImport(AppKit)
 import AppKit
 
-class macOSTests: XCTestCase {
-    var storage: Storage!
+@Suite
+@MainActor
+struct macOSTests {
+    let storage: Storage
 
-    override func setUp() {
-        super.setUp()
-
+    init() throws {
         var options = Options()
-        options.searchPathDirectory = FileManager.SearchPathDirectory.cachesDirectory
-        storage = try! Storage(options: options)
+        options.searchPathDirectory = .cachesDirectory
+        storage = try Storage(options: options)
+        try storage.removeAll()
     }
 
-    func testObject() {
+    @Test func object() throws {
         let users = [
             User(city: "Oslo", name: "A"),
             User(city: "Berlin", name: "B"),
             User(city: "New York", name: "C")
         ]
 
-        do {
-            try storage.save(object: users, forKey: "users")
-            storage.cache.removeAllObjects()
-            let loadedUsers = try storage.load(forKey: "users", as: [User].self)
-            XCTAssertEqual(users, loadedUsers)
+        try storage.save(object: users, forKey: "users")
+        storage.cache.removeAllObjects()
+        let loadedUsers = try storage.load(forKey: "users", as: [User].self)
+        #expect(users == loadedUsers)
 
-            try storage.remove(forKey: "users")
-            XCTAssertFalse(storage.exists(forKey: "users"))
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
+        try storage.remove(forKey: "users")
+        #expect(!storage.exists(forKey: "users"))
     }
 
-    func testImage() {
+    @Test func image() throws {
         let image = NSImage(color: NSColor.red, size: CGSize(width: 100, height: 100))
 
-        do {
-            try storage.save(object: image, forKey: "image")
-            storage.cache.removeAllObjects()
-            let loadedImage: Image = try storage.load(forKey: "image")
-            XCTAssertEqual(loadedImage.size, CGSize(width: 100, height: 100))
+        try storage.save(object: image, forKey: "image")
+        storage.cache.removeAllObjects()
+        let loadedImage: Image = try storage.load(forKey: "image")
+        #expect(loadedImage.size == CGSize(width: 100, height: 100))
 
-            try storage.remove(forKey: "image")
-            XCTAssertFalse(storage.exists(forKey: "image"))
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
+        try storage.remove(forKey: "image")
+        #expect(!storage.exists(forKey: "image"))
     }
 }
 
