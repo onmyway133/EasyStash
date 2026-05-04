@@ -6,9 +6,9 @@ import PackageDescription
 let package = Package(
     name: "EasyStash",
     platforms: [
-        .iOS(.v15),
-        .tvOS(.v13),
-        .macOS(.v12),
+        .iOS(.v16),
+        .tvOS(.v16),
+        .macOS(.v13),
     ],
     products: [
         .library(
@@ -23,14 +23,14 @@ let package = Package(
             dependencies: [],
             path: "Sources",
             swiftSettings: [
-                .defaultIsolation(MainActor.self)
+                .enableUpcomingFeature("NonisolatedNonsendingByDefault")
             ]
         ),
         .testTarget(
             name: "EasyStashTests",
             dependencies: ["EasyStash"],
             swiftSettings: [
-                .defaultIsolation(MainActor.self)
+                .enableUpcomingFeature("NonisolatedNonsendingByDefault")
             ]
         )
     ]
